@@ -4,10 +4,10 @@
 'use strict';
 
 import {combineReducers} from 'redux';
-// import loginIn from './Reducer';
+import baseReducer from '../baseAction/BaseReducer';
 
 const rootReducer = combineReducers({
-    // loginIn
+    baseReducer
 });
 
 export default rootReducer;

@@ -7,30 +7,32 @@ import * as types from './BaseActionType';
 
 // 初始状态
 const initialPositionState = {
-    positionStatus: 'init', // init,doing,done,failure
+    positionStatus: types.POSITION_INIT, // init,doing,done,failure
     latitude: 39.915039,
     longitude: 116.403361,
 }
 
 export default function getPoition(state = initialPositionState, action) {
     switch (action.type) {
-        case types.LOGIN_IN_INIT: // 初始状态
+        case types.POSITION_INIT: // 初始状态
             return Object.assign({}, state, {
-                status: 'init',
-                latitude: false,
-                longitude: null
+                status: types.POSITION_INIT,
+                latitude: 39.915039,
+                longitude: 116.403361,
             });
-        case types.LOGIN_IN_DOING: // 正在登录
+        case types.POSITION_DOING:
             return Object.assign({}, state, {
-                status: 'doing',
-                isSuccess: false,
-                user: null
+                status: types.POSITION_DOING,
             });
-        case types.LOGIN_IN_DONE: // 登录完成
+        case types.POSITION_DONE:
+        return Object.assign({}, state, {
+            status: types.POSITION_DONE,
+            latitude: action.latitude,
+            longitude: action.longitude,
+        });
+        case types.POSITION_FAILURE:
             return Object.assign({}, state, {
-                status: 'done',
-                isSuccess: action.isSuccess,
-                user: action.user
+                status: types.POSITION_FAILURE,
             })
         default:
             return state;

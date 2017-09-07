@@ -8,14 +8,14 @@ import {
 
 } from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
-import LoginPage from './LoginView'
+import SplashView from './view/SplashView'
 
 export default class App extends Component {
     render() {
         return (
             <Navigator
                 style={{flex: 1}}
-                initialRoute= {{id: 'LoginPage', component: LoginPage}}
+                initialRoute= {{id: 'SplashView', component: SplashView}}
                 configureScene= {this.configureScene}
                 renderScene= {this.renderScene}
             />
