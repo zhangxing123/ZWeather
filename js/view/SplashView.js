@@ -44,6 +44,7 @@ class SplashView extends Component {
     }
 
 }
+
 function startTimeOut(nav){
     // 停止定时器
     nav.replace({
@@ -51,14 +52,7 @@ function startTimeOut(nav){
         component: MainPage,
     });
 }
-function select(store)
-{
-    return {
-        status: store.baseReducer.status,
-        isSuccess: store.baseReducer.latitude,
-        user: store.baseReducer.longitude
-    }
-}
+
 
 const styles = StyleSheet.create({
     container: {
@@ -66,5 +60,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default connect(select)(SplashView);
+export default connect()(SplashView);
 
