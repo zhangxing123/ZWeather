@@ -14,6 +14,7 @@ import {
     Alert,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconSet from 'react-native-vector-icons/MaterialIcons';
 import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
 import {connect} from 'react-redux';
 
@@ -26,17 +27,14 @@ class WeatherView extends Component {
 
         this.durationTime=3000;
     }
-    componentDidMount(){
-        // this.props.dispatch(getPosition());
-        // this.timer=setTimeout(()=>{startTimeOut(this.props.navigator)},this.durationTime);
-    }
+
 
 
     render() {
         let img=this.backgroundImg();
         return (
-            <ImageBackground style={{width:ScreenW,height:ScreenH,alignItems:'center',justifyContent:'center'}} source={img}>
-
+            <ImageBackground style={{width:ScreenW,height:ScreenH,alignItems:'center'}} source={img}>
+             <IconSet name={'location-on'} size={25} color ={'#000000'}></IconSet>
             </ImageBackground>
 
         );
@@ -51,9 +49,8 @@ class WeatherView extends Component {
 function select(store)
 {
     return {
-        status: store.baseReducer.status,
-        latitude: store.baseReducer.latitude,
-        longitude: store.baseReducer.longitude
+        WeatherStatus: store.getWeather.WeatherStatus,
+        showapi_res_body: store.baseReducer.showapi_res_body,
     }
 }
 

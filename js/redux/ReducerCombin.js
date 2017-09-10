@@ -4,10 +4,11 @@
 'use strict';
 
 import {combineReducers} from 'redux';
-import baseReducer from '../baseAction/BaseReducer';
+import baseReducer ,{getWeather}from '../baseAction/BaseReducer';
 
 const rootReducer = combineReducers({
-    baseReducer
+    baseReducer,
+    getWeather
 });
 
 export default rootReducer;
